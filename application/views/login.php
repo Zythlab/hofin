@@ -6,44 +6,47 @@
           <div class="login-box-body border-right">
             <h2 class="title">Log in ke HOFIN</h2>
             <p class="title-description">Masukkan email dan password untuk log in</p>
+            <?php echo $notice ?>
+            <?php echo form_open('pengguna/login');?>
             <div class="form-group">
-              <input type="text" class="form-control form-input" placeholder="Username">
+              <input type="text" class="form-control form-input" name="username" placeholder="Username">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control form-input" placeholder="Password">
+              <input type="password" class="form-control form-input" name="password" placeholder="Password">
             </div>
             <div class="form-group">
-              <button class="btn btn-block btn-red">Sign in</button>
+              <button class="btn btn-block btn-red" type="submit">Sign in</button>
             </div>
+            <?php echo form_close(); ?>
           </div>
         </div>
         <div class="col-md-6">
           <div class="login-box-body">
+            <?php echo $sukses ?>
             <h2 class="title">Daftar HOFIN</h2>
             <p class="title-description">Silahkan mengisi data dibawah ini untuk mendaftar</p>
+            <?php echo form_open('pengguna/register');?>
             <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" data-toggle="radio">
+              <input type="radio" name="role" id="optionsRadios1" value="1" data-toggle="radio">
               Pemilik Penginapan
             </label>
             <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios2" value="2" data-toggle="radio" checked="">
+              <input type="radio" name="role" id="optionsRadios2" value="2" data-toggle="radio" checked="">
               Pencari Penginapan
             </label>
             <div class="form-group">
-              <input type="text" class="form-control form-input" placeholder="Nama Lengkap">
+              <input type="text" class="form-control form-input" name="nama" placeholder="Nama Lengkap">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control form-input" placeholder="Username">
+              <input type="text" class="form-control form-input" name="username" placeholder="Username">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control form-input" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control form-input" placeholder="Re-type Password">
+              <input type="password" class="form-control form-input" name="password" placeholder="Password">
             </div>
             <div class="form-group">
               <button class="btn btn-block btn-red">Daftar</button>
             </div>
+            <?php echo form_close(); ?>
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ class Mpenginapan extends CI_Model
 		$this->db->insert('m_penginapan', $array);
 	}
 
-	public function ubah($id, $nama,$harga,$alamat,$daerah,$kategori,$deskripsi){
+	public function ubah($id, $nama,$harga,$alamat,$daerah,$kategori,$deskripsi,$foto){
 		$array = array(
 			'nama_penginapan' => $nama,
 			'harga' => $harga,
@@ -37,6 +37,7 @@ class Mpenginapan extends CI_Model
 			'daerah' => $daerah,
 			'kategori' => $kategori,
 			'deskripsi' => $deskripsi,
+			'foto' => $foto,
 			);
 		$this->db->where('id_penginapan', $id);
 		$this->db->update('m_penginapan', $array);

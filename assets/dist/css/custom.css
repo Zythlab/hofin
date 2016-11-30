@@ -22,10 +22,13 @@ a:hover, a:focus{
 a.link{
 	color: #6f8190;
 }
+a.link-blue{
+	color: #1AB7EA
+}
 a.link.sign-up{
 	color: #1AB7EA
 }
-a.link:hover{
+a.link:hover, a.link-blue:hover{
 	color: #1AB7EA;	
 	text-decoration: underline;
 }
@@ -588,7 +591,7 @@ p.menu-owner{
 .menu .row .col-md-3 .box:after{
 	transition: all 0.5s ease;
 }
-.menu .row .col-md-3 .box:hover, .row .col-md-2 .box:hover{
+.row .col-md-3 .box:hover, .row .col-md-3 .box:hover{
 	background-color: #fff;
 	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
@@ -771,4 +774,37 @@ ul li.cart-item{
 }
 .checkbox input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked, .radio input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked, .checkbox input[type="radio"].custom-radio:checked + .icons .icon-checked, .radio input[type="radio"].custom-radio:checked + .icons .icon-checked{
 	color: #1AB7EA;
+}
+.menu-information, .menu-information p{
+	text-align: center;
+	font-size: 25px;
+}
+.menu-information p, .menu-information a{
+	margin:20px 0;
+}
+.comment-box{
+	margin: 40px 0;
+}
+.comment-img, .comment-name{
+	display: inline-block;
+}
+.comment-img{
+	margin-right: 20px;
+}
+.comment-name{
+	font-size: 22px;
+    margin: 0px;
+    color: #34495e;
+}
+.comment-desc{
+	margin-left: 70px;
+	margin: 0;
+    color: #6f8190;
+    font-family: "Lato";
+}
+.comment-text{
+	margin-left: 82px
+}
+section.comment{
+	padding-bottom: 100px;
 }

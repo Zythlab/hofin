@@ -26,7 +26,7 @@
                             <span class="name">John Doe</span> 
                         </a>
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="login.html"> <i class="fa fa-power-off icon"></i> Logout </a>
+                            <a class="dropdown-item" href="<?php echo base_url('pengguna/logout') ?>"> <i class="fa fa-power-off icon"></i> Logout </a>
                         </div>
                     </li>
                 </ul>
@@ -137,6 +137,29 @@
                                                                     <label class="control-label">Alamat</label>
                                                                     <textarea class="form-control" name="alamat"><?= $penginapan->alamat ?></textarea> 
                                                                 </div>
+                                                                <div class="form-group">
+                                                                    <label for="file-input">
+                                                                        <img id="pic" src="<?php echo base_url('assets');?>/img/section/fruits.jpg" class="img-responsive" style="max-width: 400px"/>
+                                                                    </label>
+                                                                    <input type="file" id="file-input-edit" name="foto" class="form-control" size="20"/>
+                                                                    <script type="text/javascript">
+                                                                    function readURL(input) {
+                                                                        if (input.files && input.files[0]) {
+                                                                            var reader = new FileReader();
+
+                                                                            reader.onload = function (e) {
+                                                                                $('#pic').attr('src', e.target.result);
+                                                                            }
+
+                                                                            reader.readAsDataURL(input.files[0]);
+                                                                        }
+                                                                    }
+
+                                                                    $("#file-input-edit").change(function(){
+                                                                        readURL(this);
+                                                                    });
+                                                                    </script>
+                                                                </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
@@ -224,8 +247,9 @@
                         <textarea class="form-control" name="alamat"></textarea> 
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Foto</label>
-                        <input type="file" name="foto" class="form-control" size="20" />
+                        <label class="control-label"> Foto
+                        </label>
+                        <input type="file" id="file-input" name="foto" class="form-control" size="20"/>
                     </div>
                 </div>
                 <div class="col-md-6">

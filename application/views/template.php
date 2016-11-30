@@ -28,8 +28,12 @@
         </div>
         <div class="topbar-right pull-right">
           <div class="group-sign-in">
+          <?php if(!$this->session->userdata('nama')) {?>
             <a href="<?= base_url('pengguna') ?>" class="login-top">Login</a>
             <a href="#">Register</a>
+            <?php } else {?>
+            <a>Halo, <?php echo $this->session->userdata('nama')?>! </a>
+            <?php } ?>
           </div>
         </div>
       </div>
