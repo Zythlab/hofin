@@ -66,7 +66,7 @@
 <section class="comment">
   <div class="container">
     <h2 class="recomendation-heading">Komentar</h2>
-    <?php foreach($komentar as $komentar) ?>
+    <?php foreach($komentar as $komentar){ ?>
     <div class="comment-box">
       <div class="row">
         <div class="col-md-9">
@@ -80,7 +80,7 @@
         </div>
       </div>
     </div>
-    <?php ?>
+    <?php } ?>
     <div class="row">
       <div class="col-md-9">
       <?php if ($this->session->userdata('nama')) {?>
