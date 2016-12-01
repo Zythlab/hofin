@@ -14,9 +14,11 @@ class Penginapan extends CI_Controller {
 		$this->load->view('template', $data);  
 	}
 	public function dashboard(){
-		$id_pengguna = "1"; 
-		$data['penginapan'] = $this->Mpenginapan->tampilDataPenginapan($id_pengguna); 
-		$this->load->view('VDataPenginapan', $data);  
+		if($this->session->userdata('role') == '1'){
+			$id_pengguna = "1"; 
+			$data['penginapan'] = $this->Mpenginapan->tampilDataPenginapan($id_pengguna); 
+			$this->load->view('VDataPenginapan', $data);  
+		} else redirect('penginapan');
 	}
 	public function tambah(){
 		$id_pengguna = "1";
@@ -93,7 +95,7 @@ class Penginapan extends CI_Controller {
 
 	public function cariPenginapan(){
 		$daerah = $this->input->post('daerah');
-		if($_GET['daerah']){
+		if(isset($_GET['daerah'])){
 			$daerah = $_GET['daerah'];
 		}
 		if($daerah=="0"){
@@ -107,10 +109,12 @@ class Penginapan extends CI_Controller {
 
 	public function detailPenginapan(){
 		$id_penginapan = $this->uri->segment(3);
+		$id_pengguna = $this->session->userdata('id');
 		$data['penginapan'] = $this->Mpenginapan->detailPenginapan($id_penginapan);
 		$kategori = $this->Mpenginapan->getKategoriRekomendasi($id_penginapan);
 		$data['rekomendasi'] = $this->Mpenginapan->getRekomendasi($kategori,$id_penginapan);
 		$data['komentar'] = $this->Mkomentar->getKomentar($id_penginapan);
+		$data['suka'] = $this->Mrating->getNilai($id_penginapan,$id_pengguna);
 		$data['content'] = $this->load->view('VDetailPenginapan', $data, true);
 		$this->load->view('template2', $data); 
 	}
@@ -120,6 +124,20 @@ class Penginapan extends CI_Controller {
 		$id_pengguna = $this->session->userdata('id');
 		$id_penginapan = $this->input->post('id_penginapan');
 		$this->Mkomentar->setKomentar($komentar,$id_penginapan,$id_pengguna);
+		redirect('penginapan/detailPenginapan/'.$id_penginapan.'');
+	}
+
+	public function setNilai(){
+		$suka = $this->uri->segment(3);
+		$id_penginapan = $this->uri->segment(4);
+		$id_pengguna = $this->session->userdata('id');
+		if($suka == "1"){
+			$this->Mpenginapan->setNilai($id_penginapan);
+			$this->Mrating->setNilai($id_penginapan,$id_pengguna);
+		}else{
+			$this->Mpenginapan->hapusNilai($id_penginapan);
+			$this->Mrating->hapusNilai($id_penginapan,$id_pengguna);
+		}
 		redirect('penginapan/detailPenginapan/'.$id_penginapan.'');
 	}
 }

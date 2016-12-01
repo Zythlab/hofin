@@ -28,7 +28,7 @@
         </div>
         <div class="topbar-right pull-right">
           <div class="group-sign-in">
-          <?php if(!$this->session->userdata('nama')) {?>
+            <?php if(!$this->session->userdata('nama')) {?>
             <a href="<?= base_url('pengguna') ?>" class="login-top">Login</a>
             <a href="#">Register</a>
             <?php } else {?>
@@ -51,17 +51,15 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li class="active">
-                <a href="<?php echo base_url('Penginapan/dashboard')?>" class="main-menu">HOME</a>
+                <a href="<?php echo base_url('penginapan')?>" class="main-menu">HOME</a>
               </li>
+              <?php if($this->session->userdata('role') == '1'){ ?>
               <li>
-                <a href="/contact" class="main-menu">CONTACT <i class="fa fa-angle-down"></i></a>
-                <ul class="sublist">
-                  <li><a href="#" class="sub-menu">MASTER</a></li>
-                  <li><a href="#" class="sub-menu">ADMIN</a></li>
-                </ul>
+                <a href="<?php echo base_url('penginapan/dashboard')?>" class="main-menu">DASHBOARD</a>
               </li>
+              <?php } ?>
               <li>
-                <a href="/contact" class="main-menu">SERVICES</a>
+                <a href="https://github.com/Zythlab" class="main-menu">CONTACT</a>
               </li>
             </ul>
           </div>
@@ -75,16 +73,20 @@
       <div class="row">
         <div class="col-xs-7">
           <h3 class="footer-title">Subscribe</h3>
-          <p>Do you like this freebie? Want to get more stuff like this?<br/>
-            Subscribe to designmodo news and updates to stay tuned on great designs.<br/>
-            Go to: <a href="http://designmodo.com/flat-free" target="_blank">designmodo.com/flat-free</a>
+          <p>Do you like this website? Want to get more stuff like this?<br/>
+            Subscribe to Zythlab to stay tuned on great designs and web development.<br/>
+            Go to: <a href="https://github.com/Zythlab" target="_blank">Zythlab Github</a>
           </p>
         </div> <!-- /col-xs-7 -->
       </div>
     </div>
   </footer>
   <section id="credit">
-    <h6 class="credit">Made with love by Zyth</h6>
+    <div class="container">
+      <div class="pull-right">
+        <h6 class="credit">Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Zythlab</h6>
+      </div>
+    </div>
   </section>
   <script src="<?php echo base_url() ?>assets/dist/js/vendor/jquery.min.js"></script>
   <script src="<?php echo base_url() ?>assets/dist/js/flat-ui.min.js"></script>

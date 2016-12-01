@@ -619,12 +619,12 @@ footer.dark-footer{
 }
 #credit{
 	padding: 1px;
-	text-align: center;
+	text-align: right;
 	background-color: #1d1d1d;
 	color: #fff;
 }
 h6.credit{
-	font-size: 16px;
+	font-size: 12px;
 }
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
 	margin-left: 0;

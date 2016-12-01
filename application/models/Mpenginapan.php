@@ -101,4 +101,16 @@ class Mpenginapan extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function setNilai($id_penginapan){
+		$this->db->set('rating', 'rating+1', FALSE);
+		$this->db->where("id_penginapan",$id_penginapan);
+		$this->db->update('m_penginapan');
+	}
+
+	public function hapusNilai($id_penginapan){
+		$this->db->set('rating', 'rating-1', FALSE);
+		$this->db->where("id_penginapan",$id_penginapan);
+		$this->db->update('m_penginapan');
+	}
 }

@@ -28,9 +28,12 @@
         <div class="col-md-3">
           <div class="menu-information">
             <?php if ($this->session->userdata('nama') != $penginapan->nama ) { ?>
-            <a href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Suka</a>
-            <?php } ?>
-            <p><i class="fa fa-comment-o" aria-hidden="true"></i> 254</p>
+                <?php if(!$suka) { ?>
+              <a href="<?php echo base_url('penginapan/setNilai/1/'.$penginapan->id_penginapan.'') ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Suka</a>
+              <?php } else { ?>
+              <a href="<?php echo base_url('penginapan/setNilai/2/'.$penginapan->id_penginapan.'') ?>"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Tidak Suka</a>
+            <?php } 
+            } ?>
           </div>
         </div>
       </div>
@@ -46,7 +49,7 @@
       <?php foreach ($rekomendasi as $rekomendasi) { ?>
       <div class="col-md-3">
         <div class="box">
-          <a href="#">
+          <a href="<?= base_url('penginapan/detailPenginapan/')?><?= $rekomendasi->id_penginapan?>">
             <span class="box-image">
               <img src="img/content/1.jpg" class="img-responsive">
             </span> 

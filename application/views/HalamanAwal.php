@@ -7,7 +7,7 @@
       <p class="banner-body">
         HOMESTAY PARTNERMU
       </p>
-      <button class="btn btn-ghost-white banner-btn">LIHAT SEMUA PENGINAPAN</button>
+      <a href="<?php echo base_url('penginapan/cariPenginapan?daerah=0')?>" class="btn btn-ghost-white banner-btn">LIHAT SEMUA PENGINAPAN</a>
     </div>
   </div>
 </section>
@@ -34,7 +34,7 @@
       <?php foreach ($populer as $populer) {?>
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="box">
-            <a href="#">
+            <a href="<?= base_url('penginapan/detailPenginapan/')?><?= $populer->id_penginapan?>">
               <div class="box-image">
                 <img src="img/content/1.jpg" class="img-responsive">
               </div> 
