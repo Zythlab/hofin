@@ -19,7 +19,10 @@
                 <div class="header-block header-block-collapse hidden-lg-up"> <button class="collapse-btn" id="sidebar-collapse-btn">
                    <i class="fa fa-bars"></i>
                </button> </div>
-               <div class="header-block header-block-nav">
+               <div class="header-block header-block-buttons">
+               <a href="<?php echo base_url() ?>" class="btn btn-oval btn-sm rounded-s header-btn"> <i class="fa fa-home"></i> lihat halaman awal </a>
+            </div>
+            <div class="header-block header-block-nav">
                 <ul class="nav-profile">
                     <li class="profile dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -123,7 +126,7 @@
                                                      <h4 class="modal-title">Ubah Penginapan</h4> </div>
                                                      <div class="modal-body">
                                                          <div class="row">
-                                                         <input type="hidden" name="id_penginapan" value="<?= $penginapan->id_penginapan?>">
+                                                             <input type="hidden" name="id_penginapan" value="<?= $penginapan->id_penginapan?>">
                                                              <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Nama Penginapan</label>
@@ -143,21 +146,21 @@
                                                                     </label>
                                                                     <input type="file" id="file-input-edit" name="foto" class="form-control" size="20"/>
                                                                     <script type="text/javascript">
-                                                                    function readURL(input) {
-                                                                        if (input.files && input.files[0]) {
-                                                                            var reader = new FileReader();
+                                                                        function readURL(input) {
+                                                                            if (input.files && input.files[0]) {
+                                                                                var reader = new FileReader();
 
-                                                                            reader.onload = function (e) {
-                                                                                $('#pic').attr('src', e.target.result);
+                                                                                reader.onload = function (e) {
+                                                                                    $('#pic').attr('src', e.target.result);
+                                                                                }
+
+                                                                                reader.readAsDataURL(input.files[0]);
                                                                             }
-
-                                                                            reader.readAsDataURL(input.files[0]);
                                                                         }
-                                                                    }
 
-                                                                    $("#file-input-edit").change(function(){
-                                                                        readURL(this);
-                                                                    });
+                                                                        $("#file-input-edit").change(function(){
+                                                                            readURL(this);
+                                                                        });
                                                                     </script>
                                                                 </div>
                                                             </div>
