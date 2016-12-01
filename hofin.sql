@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2016 at 02:09 PM
+-- Generation Time: Dec 01, 2016 at 09:07 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -28,10 +28,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `m_komentar` (
   `id_komentar` int(11) NOT NULL,
-  `id_pengirim` int(11) NOT NULL,
-  `id_penerima` int(11) NOT NULL,
+  `id_pengguna` int(11) NOT NULL,
+  `id_penginapan` int(11) NOT NULL,
   `isi_komentar` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `m_komentar`
+--
+
+INSERT INTO `m_komentar` (`id_komentar`, `id_pengguna`, `id_penginapan`, `isi_komentar`) VALUES
+(1, 1, 4, 'coba'),
+(2, 1, 4, 'mantab abis'),
+(3, 1, 4, 'go go go');
 
 -- --------------------------------------------------------
 
@@ -43,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `m_pengguna` (
   `id_pengguna` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `role` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
@@ -52,8 +61,8 @@ CREATE TABLE IF NOT EXISTS `m_pengguna` (
 --
 
 INSERT INTO `m_pengguna` (`id_pengguna`, `nama`, `username`, `password`, `role`) VALUES
-(1, 'Wahyu', 'wahyu', 'wahyu', 1),
-(2, 'Fardan', 'fardan', 'fardan', 1);
+(1, 'bayu', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
+(2, 'wahyu', 'wahyu', '32c9e71e866ecdbc93e497482aa6779f', 2);
 
 -- --------------------------------------------------------
 
@@ -80,8 +89,20 @@ CREATE TABLE IF NOT EXISTS `m_penginapan` (
 
 INSERT INTO `m_penginapan` (`id_penginapan`, `id_pengguna`, `rating`, `nama_penginapan`, `alamat`, `daerah`, `harga`, `deskripsi`, `kategori`, `foto`) VALUES
 (2, 2, 215, 'BAKUL', 'asdasdasdasd', 'Kab. Jabung', 180000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', 'Homestay', ''),
-(3, 1, 0, 'baru gan', 'jalan', 'Kab. Jabung', 15000, 'gaul', 'Homestay', ''),
-(4, 1, 0, 'asdfa', 'sdfasf', 'Kab. Singosari', 12312, 'asfsadf', 'Homestay', '');
+(3, 1, 0, 'baru gan', 'jalan', 'Kab. Jabung', 15000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', 'Homestay', ''),
+(4, 1, 0, 'asdfa', 'sdfasf', 'Kab. Singosari', 12312, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', 'Homestay', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `m_rating`
+--
+
+CREATE TABLE IF NOT EXISTS `m_rating` (
+  `id_rating` int(11) NOT NULL,
+  `id_penginapan` int(11) NOT NULL,
+  `id_pengguna` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -106,6 +127,12 @@ ALTER TABLE `m_penginapan`
   ADD PRIMARY KEY (`id_penginapan`);
 
 --
+-- Indexes for table `m_rating`
+--
+ALTER TABLE `m_rating`
+  ADD PRIMARY KEY (`id_rating`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -113,7 +140,7 @@ ALTER TABLE `m_penginapan`
 -- AUTO_INCREMENT for table `m_komentar`
 --
 ALTER TABLE `m_komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `m_pengguna`
 --
@@ -124,6 +151,11 @@ ALTER TABLE `m_pengguna`
 --
 ALTER TABLE `m_penginapan`
   MODIFY `id_penginapan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `m_rating`
+--
+ALTER TABLE `m_rating`
+  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
