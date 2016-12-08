@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>HOFIN | Tempat kamu cari homestay di area malang</title>
+  <title>HOFIN | Homestay Finder</title>
   <meta name="description" content="Tempat cari katering makanan terdekat dan termurah"/>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
   <meta name="viewport" content="width=1366, initial-scale=1.0, maximum-scale=1.0">
@@ -10,8 +10,7 @@
   <!-- Loading Bootstrap -->
   <link href="<?php echo base_url() ?>assets/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Loading Flat UI -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/dist/fonts/font-awesome/css/font-awesome.min.css">
   <link href="<?php echo base_url() ?>assets/dist/fonts/essential/flaticon.css" rel="stylesheet">
   <link href="<?php echo base_url() ?>assets/dist/css/flat-ui.css" rel="stylesheet">
   <link href="<?php echo base_url() ?>assets/dist/css/custom.css" rel="stylesheet">
@@ -22,8 +21,7 @@
       <div class="container">
         <div class="topbar-left">
           <div class="social">
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            
           </div>
         </div>
         <div class="topbar-right pull-right">
@@ -32,7 +30,7 @@
             <a href="<?= base_url('pengguna') ?>" class="login-top">Login</a>
             <a href="<?= base_url('pengguna') ?>">Register</a>
             <?php } else {?>
-            <a>Halo, <?php echo $this->session->userdata('nama')?>!, </a><a href="<?php echo base_url('pengguna/logout') ?>">logout</a>
+            <a>Halo, <?php echo $this->session->userdata('nama')?> | </a><a href="<?php echo base_url('pengguna/logout') ?>">logout</a>
             <?php } ?>
           </div>
         </div>
@@ -58,9 +56,7 @@
                 <a href="<?php echo base_url('penginapan/dashboard')?>" class="main-menu">DASHBOARD</a>
               </li>
               <?php } ?>
-              <li>
-                <a href="https://github.com/Zythlab" class="main-menu">CONTACT</a>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -72,10 +68,10 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-7">
-          <h3 class="footer-title">Subscribe</h3>
-          <p>Do you like this website? Want to get more stuff like this?<br/>
-            Subscribe to Zythlab to stay tuned on great designs and web development.<br/>
-            Go to: <a href="https://github.com/Zythlab" target="_blank">Zythlab Github</a>
+          <h3 class="footer-title">HOFIN</h3>
+          <p>Homestay Finder | Temukan Penginapan Impianmu Kapan Saja & Dimana Saja!<br/>
+            <br/>
+            
           </p>
         </div> <!-- /col-xs-7 -->
       </div>
@@ -84,7 +80,7 @@
   <section id="credit">
     <div class="container">
       <div class="pull-right">
-        <h6 class="credit">Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Zythlab</h6>
+        <h6 class="credit">Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by HOFIN</h6>
       </div>
     </div>
   </section>

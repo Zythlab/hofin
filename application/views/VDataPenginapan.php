@@ -26,7 +26,7 @@
                 <ul class="nav-profile">
                     <li class="profile dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="name">John Doe</span> 
+                            <span class="name"><?= $this->session->userdata('username') ?></span> 
                         </a>
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="<?php echo base_url('pengguna/logout') ?>"> <i class="fa fa-power-off icon"></i> Logout </a>
@@ -39,12 +39,12 @@
             <div class="sidebar-container">
                 <div class="sidebar-header">
                     <div class="brand">
-                        DASHBOARD </div>
+                        HOFIN </div>
                     </div>
                     <nav class="menu">
                         <ul class="nav metismenu" id="sidebar-menu">
                             <li>
-                                <a href="index.html"> <i class="fa fa-home"></i> Dashboard </a>
+                                <a href="#"> <i class="fa fa-home"></i> Dashboard </a>
                             </li>
                         </ul>
                     </nav>
@@ -54,7 +54,7 @@
             <article class="content static-tables-page">
                 <div class="title-block">
                     <h1 class="title">
-                      Penginapan Anda
+                      Daftar Penginapan Anda
                   </h1>
                   <div class="pull-right">
                     <button class="btn btn-primary" data-toggle="modal" data-target="#modal-media">Tambah Data</button>
@@ -141,8 +141,9 @@
                                                                     <textarea class="form-control" name="alamat"><?= $penginapan->alamat ?></textarea> 
                                                                 </div>
                                                                 <div class="form-group">
+																<label class="control-label">Foto
                                                                     <label for="file-input">
-                                                                        <img id="pic" src="<?php echo base_url('assets');?>/img/section/fruits.jpg" class="img-responsive" style="max-width: 400px"/>
+                                                                        <img id="pic" src="<?php echo base_url()."assets/uploads/".$penginapan->foto;?>" class="img-responsive" style="max-width: 400px"/>
                                                                     </label>
                                                                     <input type="file" id="file-input-edit" name="foto" class="form-control" size="20"/>
                                                                     <script type="text/javascript">
@@ -168,24 +169,54 @@
                                                                 <div class="form-group">
                                                                     <label class="control-label">Daerah</label>
                                                                     <select class="form-control" name="daerah">
-                                                                        <?php if ($penginapan->daerah == "Kab. Singosari") { ?>
-                                                                        <option value="Kab. Singosari" selected>Kab. Singosari</option>
-                                                                        <option value="Kab. Jabung">Kab. Jabung</option>
-                                                                        <?php } else if($penginapan->daerah == "Kab. Jabung") { ?>
-                                                                        <option value="Kab. Singosari" >Kab. Singosari</option>
-                                                                        <option value="Kab. Jabung" selected>Kab. Jabung</option>
+                                                                        <?php if ($penginapan->daerah == "Kec. Blimbing") { ?>
+                                                                        <option value="Kec. Blimbing">Kec. Blimbing</option>
+																		<option value="Kec. Kedungkandang">Kec. Kedungkandang</option>
+																		<option value="Kec. Klojen">Kec. Klojen</option>
+																		<option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+																		<option value="Kec. Sukun">Kec. Sukun</option>
+                                                                        <?php } else if($penginapan->daerah == "Kec. Kedungkandang") { ?>
+                                                                        <option value="Kec. Blimbing">Kec. Blimbing</option>
+																		<option value="Kec. Kedungkandang">Kec. Kedungkandang</option>
+																		<option value="Kec. Klojen">Kec. Klojen</option>
+																		<option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+																		<option value="Kec. Sukun">Kec. Sukun</option>
+                                                                        <?php } else if($penginapan->daerah == "Kec. Klojen") { ?>
+                                                                        <option value="Kec. Blimbing">Kec. Blimbing</option>
+																		<option value="Kec. Kedungkandang">Kec. Kedungkandang</option>
+																		<option value="Kec. Klojen">Kec. Klojen</option>
+																		<option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+																		<option value="Kec. Sukun">Kec. Sukun</option>
+																		<?php } else if($penginapan->daerah == "Kec. Lowokwaru") { ?>
+                                                                        <option value="Kec. Blimbing">Kec. Blimbing</option>
+																		<option value="Kec. Kedungkandang">Kec. Kedungkandang</option>
+																		<option value="Kec. Klojen">Kec. Klojen</option>
+																		<option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+																		<option value="Kec. Sukun">Kec. Sukun</option>
+                                                                        <?php } else if($penginapan->daerah == "Kec. Sukun") { ?>
+                                                                        <option value="Kec. Blimbing">Kec. Blimbing</option>
+																		<option value="Kec. Kedungkandang">Kec. Kedungkandang</option>
+																		<option value="Kec. Klojen">Kec. Klojen</option>
+																		<option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+																		<option value="Kec. Sukun">Kec. Sukun</option>
                                                                         <?php } ?>
                                                                     </select>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label class="control-label">Kategori</label>
                                                                     <select class="form-control" name="kategori">
-                                                                        <?php if ($penginapan->kategori == "Homestay") { ?>
-                                                                        <option value="Homestay" selected>Homestay</option>
-                                                                        <option value="Kontrakan">Kontrakan</option>
-                                                                        <?php } else if($penginapan->kategori == "Kontrakan") { ?>
-                                                                        <option value="Homestay" >Homestay</option>
-                                                                        <option value="Kontrakan" selected>Kontrakan</option>
+                                                                        <?php if ($penginapan->kategori == "Guest House") { ?>
+                                                                        <option value="Guest House" selected>Guest House</option>
+																		<option value="Homestay" selected>Homestay</option>
+																		<option value="Hotel" selected>Hotel</option>
+                                                                        <?php } else if($penginapan->kategori == "Homestay") { ?>
+                                                                        <option value="Guest House" selected>Guest House</option>
+																		<option value="Homestay" selected>Homestay</option>
+																		<option value="Hotel" selected>Hotel</option>
+																		<?php } else if($penginapan->kategori == "Hotel") { ?>
+                                                                        <option value="Guest House" selected>Guest House</option>
+																		<option value="Homestay" selected>Homestay</option>
+																		<option value="Hotel" selected>Hotel</option>
                                                                         <?php } ?> 
                                                                     </select>
                                                                 </div>
@@ -221,7 +252,7 @@
 <footer class="footer">
     <div class="footer-block author">
         <ul>
-            <li> created by <a href="https://github.com/modularcode">Zythlab</a> </li>
+            <li> created by HOFIN</li>
         </ul>
     </div>
 </footer>
@@ -250,7 +281,7 @@
                         <textarea class="form-control" name="alamat"></textarea> 
                     </div>
                     <div class="form-group">
-                        <label class="control-label"> Foto
+                        <label class="control-label">Foto
                         </label>
                         <input type="file" id="file-input" name="foto" class="form-control" size="20"/>
                     </div>
@@ -259,15 +290,19 @@
                     <div class="form-group">
                         <label class="control-label">Daerah</label>
                         <select class="form-control" name="daerah">
-                            <option value="Kab. Singosari">Kab. Singosari</option>
-                            <option value="Kab. Jabung">Kab. Jabung</option>
+                            <option value="Kec. Blimbing">Kec. Blimbing</option>
+							<option value="Kec. Kedungkandang">Kec. Kedungkandang</option>
+							<option value="Kec. Klojen">Kec. Klojen</option>
+							<option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+							<option value="Kec. Sukun">Kec. Sukun</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Kategori</label>
                         <select class="form-control" name="kategori">
+							<option value="Guest House">Guest House</option>
                             <option value="Homestay">Homestay</option>
-                            <option value="Kontrakan">Kontrakan</option>
+                            <option value="Hotel">Hotel</option>
                         </select>
                     </div>
                     <div class="form-group">

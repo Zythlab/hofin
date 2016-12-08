@@ -5,8 +5,11 @@
     <div class="form-group">
       <select class="form-control select" data-toggle="select" name="daerah">
         <option value="0" selected>Pilih Daerah</option>
-        <option value="Kab. Singosari">Kab. Singosari</option>
-        <option value="Kab. Jabung">Kab. Jabung</option>
+        <option value="Kec. Blimbing">Kec. Blimbing</option>
+        <option value="Kec. Kedungkandang">Kec. Kedungkandang</option>
+		<option value="Kec. Klojen">Kec. Klojen</option>
+		<option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+		<option value="Kec. Sukun">Kec. Sukun</option>
       </select>
     </div>
     <button type="submit" class="btn button-search btn-red">Cari</button>
@@ -18,11 +21,11 @@
           <div class="box">
             <a href="<?= base_url('penginapan/detailPenginapan/')?><?= $penginapan->id_penginapan?>">
               <div class="box-image">
-                <img src="img/content/1.jpg" class="img-responsive">
+                <img src="<?php echo base_url()."assets/uploads/".$penginapan->foto;?>" class="img-responsive">
               </div> 
               <div class="box-description">
                 <h4 class="menu-title"><?= $penginapan->nama_penginapan ?></h4>
-                <p class="menu-owner"><?= $penginapan->nama ?></p>
+                <p class="menu-owner"><?= $penginapan->daerah ?></p>
                 <div class="menu-type"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <?= $penginapan->rating ?></div>
                 <div class="menu-price">Rp. <?=$penginapan->harga ?>,-</div>
               </div>

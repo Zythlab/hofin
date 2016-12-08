@@ -19,6 +19,7 @@ class Mpengguna extends CI_Model
                     'nama' => $rows->nama,
                     'role' => $rows->role,
                     'id' => $rows->id_pengguna,
+                    'username' => $rows->username,
                 );
             }
             $this->session->set_userdata($newdata);

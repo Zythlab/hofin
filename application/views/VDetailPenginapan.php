@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="content-img">
-            <img src="img/content/2.jpg" class="img-responsive">
+            <img src="<?php echo base_url()."assets/uploads/".$penginapan->foto;?>" class="img-responsive">
           </div>
         </div>
         <div class="col-md-6">
@@ -44,14 +44,14 @@
 </section>
 <section class="owner-recomendation">
   <div class="container">
-    <h2 class="recomendation-heading">Rekomendasi Penginapan yang lain</h2>
+    <h2 class="recomendation-heading">Rekomendasi Penginapan...</h2>
     <div class="row">
       <?php foreach ($rekomendasi as $rekomendasi) { ?>
       <div class="col-md-3">
         <div class="box">
           <a href="<?= base_url('penginapan/detailPenginapan/')?><?= $rekomendasi->id_penginapan?>">
             <span class="box-image">
-              <img src="img/content/1.jpg" class="img-responsive">
+              <img src="<?php echo base_url()."assets/uploads/".$rekomendasi->foto;?>" class="img-responsive">
             </span> 
             <div class="box-description">
               <h4 class="menu-title"><?= $rekomendasi->nama_penginapan ?></h4>

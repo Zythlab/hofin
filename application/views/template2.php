@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>HOFIN | Tempat kamu cari homestay di area malang</title>
+   <title>HOFIN | Homestay Finder</title>
   <meta name="description" content="Tempat cari katering makanan terdekat dan termurah"/>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
   <meta name="viewport" content="width=1366, initial-scale=1.0, maximum-scale=1.0">
@@ -10,7 +10,6 @@
   <!-- Loading Bootstrap -->
   <link href="<?php echo base_url() ?>assets/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Loading Flat UI -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link href="<?php echo base_url() ?>assets/dist/fonts/essential/flaticon.css" rel="stylesheet">
   <link href="<?php echo base_url() ?>assets/dist/css/flat-ui.css" rel="stylesheet">
@@ -37,9 +36,7 @@
               <a href="<?php echo base_url('penginapan/dashboard')?>" class="main-menu">DASHBOARD</a>
             </li>
             <?php } ?>
-            <li>
-            <a href="https://github.com/Zythlab" class="main-menu">CONTACT</a>
-            </li>
+           
           </ul>
         </div>
       </div>
@@ -50,11 +47,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-7">
-          <h3 class="footer-title">Subscribe</h3>
-          <p>Do you like this website? Want to get more stuff like this?<br/>
-            Subscribe to Zythlab to stay tuned on great designs and web development.<br/>
-            Go to: <a href="https://github.com/Zythlab" target="_blank">Zythlab Github</a>
-          </p>
+          <h3 class="footer-title">HOFIN</h3>
+          <p>Homestay Finder | Temukan Penginapan Impianmu Kapan Saja & Dimana Saja!<br/>
         </div> <!-- /col-xs-7 -->
       </div>
     </div>
@@ -62,7 +56,7 @@
   <section id="credit">
     <div class="container">
       <div class="pull-right">
-        <h6 class="credit">Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Zythlab</h6>
+        <h6 class="credit">Made with <i class="fa fa-heart-o" aria-hidden="true"></i> HOFIN</h6>
       </div>
     </div>
   </section>

@@ -5,7 +5,7 @@
         <div class="col-md-6">
           <div class="login-box-body border-right">
             <h2 class="title">Log in ke HOFIN</h2>
-            <p class="title-description">Masukkan email dan password untuk log in</p>
+            <p class="title-description">Masukkan username dan password untuk login</p>
             <?php echo $notice ?>
             <?php echo form_open('pengguna/login');?>
             <div class="form-group">
@@ -15,7 +15,7 @@
               <input type="password" class="form-control form-input" name="password" placeholder="Password">
             </div>
             <div class="form-group">
-              <button class="btn btn-block btn-red" type="submit">Sign in</button>
+              <button class="btn btn-block btn-red" type="submit">LOGIN</button>
             </div>
             <?php echo form_close(); ?>
           </div>
@@ -23,7 +23,7 @@
         <div class="col-md-6">
           <div class="login-box-body">
             <?php echo $sukses ?>
-            <h2 class="title">Daftar HOFIN</h2>
+            <h2 class="title">Register HOFIN</h2>
             <p class="title-description">Silahkan mengisi data dibawah ini untuk mendaftar</p>
             <?php echo form_open('pengguna/register');?>
             <label class="radio">
@@ -44,7 +44,7 @@
               <input type="password" class="form-control form-input" name="password" placeholder="Password">
             </div>
             <div class="form-group">
-              <button class="btn btn-block btn-red">Daftar</button>
+              <button class="btn btn-block btn-red">SUBMIT</button>
             </div>
             <?php echo form_close(); ?>
           </div>

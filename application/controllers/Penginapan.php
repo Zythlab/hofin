@@ -15,46 +15,38 @@ class Penginapan extends CI_Controller {
 	}
 	public function dashboard(){
 		if($this->session->userdata('role') == '1'){
-			$id_pengguna = "1"; 
+			$id_pengguna = $this->session->userdata('id'); 
 			$data['penginapan'] = $this->Mpenginapan->tampilDataPenginapan($id_pengguna); 
 			$this->load->view('VDataPenginapan', $data);  
 		} else redirect('penginapan');
 	}
 	public function tambah(){
-		$id_pengguna = "1";
-		$config['upload_path']          = realpath(APPPATH . '../assets/uploads/');
+		
+		$id_pengguna = $this->session->userdata('id');
+		$config['upload_path']          = ('./assets/uploads/');
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['max_size']             = 100000000;
 		$config['overwrite'] 			= TRUE;
 
 		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
-
-		var_dump($config['upload_path']);
 		if (!$this->upload->do_upload('foto'))
 		{
-			// $error = array('error' => $this->upload->display_errors());
-
-			// print_r($error);
-			echo "noob";
-			// $file_name = '';
+			 $error = array('error' => $this->upload->display_errors());
+			 print_r($error);
 		}
 		else
 		{
-			// $error = array('error' => $this->upload->display_errors());
-
-			// print_r($error);
-			echo "sukses";
-			// $file_name = $this->upload->data()['file_name'];
+			 $error = array('error' => $this->upload->display_errors());
 		}
-
+		
+		$file_name = $this->upload->data();
 		$nama = $this->input->post('nama');
 		$harga = $this->input->post('harga');
 		$alamat = $this->input->post('alamat');
 		$daerah = $this->input->post('daerah');
 		$kategori = $this->input->post('kategori');
 		$deskripsi = $this->input->post('deskripsi');
-		$foto = $file_name;
+		$foto = $file_name['file_name'];
 
 		$this->Mpenginapan->tambah($id_pengguna,$nama,$harga,$alamat,$daerah,$kategori,$deskripsi,$foto);
 		redirect('penginapan/dashboard');
@@ -76,14 +68,14 @@ class Penginapan extends CI_Controller {
 		{
 			$file_name = $this->upload->data()['file_name'];
 		}
-
+		$file_name = $this->upload->data();
 		$nama = $this->input->post('nama');
 		$harga = $this->input->post('harga');
 		$alamat = $this->input->post('alamat');
 		$daerah = $this->input->post('daerah');
 		$kategori = $this->input->post('kategori');
 		$deskripsi = $this->input->post('deskripsi');
-		$foto = $file_name;
+		$foto = $file_name['file_name'];
 		$this->Mpenginapan->ubah($id_penginapan,$nama,$harga,$alamat,$daerah,$kategori,$deskripsi,$foto);
 		redirect('penginapan/dashboard');
 	}
